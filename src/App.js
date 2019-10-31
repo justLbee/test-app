@@ -1,11 +1,16 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import { Route }  from "react-router-dom";
+
+import MainLayout from "./layouts/mainLayout"
+
+import './App.scss';
+
 
 function App() {
     return (
-        <div className="App">
-            <p>Hi from React</p>
-        </div>
+        <MainLayout>
+            <Route path="/" />
+        </MainLayout>
     );
 }
 
