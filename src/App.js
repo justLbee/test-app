@@ -1,8 +1,7 @@
 import React from "react";
-import { Route }  from "react-router-dom";
 
 import MainLayout from "./layouts/mainLayout"
-import LoginPage from "./views/login"
+import SubmitForm from "./components/SubmitForm";
 
 import './App.scss';
 
@@ -10,7 +9,7 @@ import './App.scss';
 function App() {
     return (
         <MainLayout>
-            <Route path="/login" component={LoginPage}/>
+            <SubmitForm />
         </MainLayout>
     );
 }
