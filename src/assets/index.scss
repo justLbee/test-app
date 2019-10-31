@@ -14,20 +14,43 @@ code {
 
 .main-layout {
   height: 100vh;
-  background-color: #ccc;
-}
-
-.form-window-wrapper {
-  width: 400px;
-  height: 500px;
-  border: 1px solid black;
-  padding: 0 20px;
+  background-color: #fff;
 
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
 
-  .form-wrapper {
-    display: flex;
-    flex-direction: column;
+  h1 {
+    margin-bottom: 3rem;
+  }
+
+  .form-window-wrapper {
+    width: 450px;
+    height: 500px;
+    border: 1px solid black;
+    padding: 0 20px;
+
+    .form-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-wrapper {
+      margin-bottom: 15px;
+
+      input {
+        width: 100%;
+        display: block;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 5px;
+
+        margin-bottom: 30px;
+      }
+    }
   }
 }
+

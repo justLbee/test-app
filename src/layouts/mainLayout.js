@@ -5,9 +5,9 @@ export default class mainLayout extends Component {
     render() {
         return (
             <div className={'main-layout'}>
-                <main>
+                <div>
                     { this.props.children }
-                </main>
+                </div>
             </div>
         )
     }
