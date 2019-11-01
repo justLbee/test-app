@@ -25,7 +25,11 @@ const Input = props => {
                 placeholder={ props.placeholder }
             />
             {
-                isInvalid(props) ? <span>{ props.errorMessage || 'Неверные данные' }</span> : null
+                isInvalid(props)
+                    ?
+                    <span>{ props.errorMessage || 'Неверные данные' }</span>
+                    :
+                    null
             }
         </div>
     )
