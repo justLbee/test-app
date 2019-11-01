@@ -1,67 +1,29 @@
-import React, { Component } from "react";
+import React, { Component }   from "react";
+import { connect }            from "react-redux"
+import { select }             from "../../actions";
 
 import Input from "../UI/Input";
 
 import classes from "../../assets/index.module.scss"
 
-export default class SubmitForm extends Component {
-    state = {
-        formControls: {
-            name : {
-                value       : '',
-                type        : 'text',
-                placeholder : 'Имя',
-                errorMessage: 'Поле не может быть пустым',
-                valid       : false,
-                touched     : false,
-                validation  : {
-                    required : true,
-                    minLength: 1
-                }
-            },
-            phone: {
-                value       : '',
-                type        : 'text',
-                placeholder : 'Телефон',
-                errorMessage: 'Введите корректный пароль',
-                valid       : false,
-                touched     : false,
-                validation  : {
-                    required: true,
-                }
-            },
-            email: {
-                value       : '',
-                type        : 'email',
-                placeholder : 'Email',
-                errorMessage: 'Введите корректный email',
-                valid       : false,
-                touched     : false,
-                validation  : {
-                    required: true,
-                    email   : true
-                }
-            }
-        }
-    };
-
+class SubmitForm extends Component {
     onChangeHandler = (event, controlName) => {
-        console.log(controlName);
+        console.log(controlName,);
     };
 
     renderInputs() {
-        return Object.keys(this.state.formControls).map((controlName, index) => {
-            const control = this.state.formControls[controlName];
+        return Object.keys(this.props.formControls).map((controlName, index) => {
+            const control = this.props.formControls[controlName];
             return (
-                <Input value={control.value}
-                       type={control.type}
-                       valid={control.valid}
-                       placeholder={control.placeholder}
-                       touched={control.touched}
-                       errorMessgae={control.errorMessage}
-                       shouldValidate={!!control.validation}
-                       key={controlName + index}
-                       onChange={event => this.onChangeHandler(event, controlName)}
+                <Input value={ control.value }
+                       type={ control.type }
+                       valid={ control.valid }
+                       placeholder={ control.placeholder }
+                       touched={ control.touched }
+                       errorMessgae={ control.errorMessage }
+                       shouldValidate={ !!control.validation }
+                       key={ controlName + index }
+                       onChange={ event => this.props.onChangeHandler(event, controlName) }
                 />
             )
         })
@@ -78,3 +40,19 @@ export default class SubmitForm extends Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        formControls: state.formControls
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        onChangeHandler: (event, controlName) => {
+            dispatch(select(event, controlName))
+        },
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SubmitForm);

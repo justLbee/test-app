@@ -1,5 +1,5 @@
 export default function () {
-    return [
+    return (
         {
             name : {
                 value       : '',
@@ -37,5 +37,5 @@ export default function () {
                 }
             }
         }
-    ]
+    )
 }
