@@ -12,7 +12,7 @@ code {
   monospace;
 }
 
-.main-layout {
+.mainLayout {
   height: 100vh;
   background-color: #fff;
 
@@ -25,32 +25,11 @@ code {
     margin-bottom: 3rem;
   }
 
-  .form-window-wrapper {
+  .formWindowWrapper {
     width: 450px;
     height: 500px;
-    border: 1px solid black;
+    border: 1px solid #ccc;
     padding: 0 20px;
-
-    .form-wrapper {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .input-wrapper {
-      margin-bottom: 15px;
-
-      input {
-        width: 100%;
-        display: block;
-        box-sizing: border-box;
-        outline: none;
-        border: none;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 5px;
-
-        margin-bottom: 30px;
-      }
-    }
   }
 }
 

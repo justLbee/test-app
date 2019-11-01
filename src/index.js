@@ -4,8 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 
 import App from './App';
 
-import './assets/index.scss';
-
 const app = (
     <BrowserRouter>
         <App/>

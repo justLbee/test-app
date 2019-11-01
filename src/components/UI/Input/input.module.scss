@@ -1,0 +1,23 @@
+.InputWrapper {
+  margin-bottom: 15px;
+}
+
+.inpt {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  transition: all 300ms ease-in-out;
+
+  padding-bottom: 5px;
+  margin-bottom: 30px;
+}
+
+.invalid {
+  color: #f01f30;
+}
+
+
+
