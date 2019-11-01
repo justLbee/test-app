@@ -1,16 +1,13 @@
 import React, { Component }   from "react";
 import { connect }            from "react-redux"
-import { select }             from "../../actions";
+
+import { inputTouched, inputStateChanged }             from "../../actions";
 
 import Input from "../UI/Input";
 
 import classes from "../../assets/index.module.scss"
 
 class SubmitForm extends Component {
-    onChangeHandler = (event, controlName) => {
-        console.log(controlName,);
-    };
-
     renderInputs() {
         return Object.keys(this.props.formControls).map((controlName, index) => {
             const control = this.props.formControls[controlName];
@@ -23,7 +20,7 @@ class SubmitForm extends Component {
                        errorMessgae={ control.errorMessage }
                        shouldValidate={ !!control.validation }
                        key={ controlName + index }
-                       onChange={ event => this.props.onChangeHandler(event, controlName) }
+                       onChange={ event => this.props.onChangeHandler(controlName, event.target.value) }
                 />
             )
         })
@@ -43,14 +40,14 @@ class SubmitForm extends Component {
 
 function mapStateToProps(state) {
     return {
-        formControls: state.formControls
+        formControls: state.inputReducer
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        onChangeHandler: (event, controlName) => {
-            dispatch(select(event, controlName))
+        onChangeHandler: (controlName, text) => {
+            dispatch(inputStateChanged(controlName, text))
         },
     }
 }

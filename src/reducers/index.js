@@ -1,9 +1,11 @@
 import { combineReducers } from "redux";
 
-import formControls from "./formControls";
+// import formControls from "./formControls";
+import inputReducer from "./input-reducer"
 
 const allReducers = combineReducers({
-    formControls
+    // formControls,
+    inputReducer
 });
 
 export default allReducers;
