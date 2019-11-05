@@ -1,4 +1,3 @@
-// import formControls from "./formControls";
 import is from "is_js";
 
 const initialState = {

@@ -4,3 +4,10 @@ export const inputStateChanged = (input, text) => {
         payload: {input, text}
     }
 };
+
+export const onSubmitClicked = (event, inputsData) => {
+    return {
+        type: 'SUBMIT_CLICKED',
+        payload: {event, inputsData}
+    }
+};

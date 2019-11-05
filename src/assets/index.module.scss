@@ -55,10 +55,8 @@ code {
     background-color: #000;
     color: #fff;
     border: 0;
-
-    .btnSubmit input:hover {
-      cursor: pointer;
-    }
+    cursor: pointer;
+    outline: 0;
   }
 }
 

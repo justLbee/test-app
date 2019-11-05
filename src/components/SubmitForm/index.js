@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect }          from "react-redux"
 
-import { inputStateChanged } from "../../actions";
+import { inputStateChanged, onSubmitClicked } from "../../actions";
 
 import Input from "../UI/Input";
 
@@ -38,6 +38,7 @@ class SubmitForm extends Component {
                         <input
                             type={ 'submit' }
                             value={'Начать работу'}
+                            onClick={event => this.props.onClickHandler(event, this.props.formControls)}
                         />
                     </div>
                     <p>
@@ -61,6 +62,10 @@ function mapDispatchToProps(dispatch) {
         onChangeHandler: (controlName, text) => {
             dispatch(inputStateChanged(controlName, text))
         },
+
+        onClickHandler: (event, inputsData) => {
+            dispatch(onSubmitClicked(event, inputsData))
+        }
     }
 }
 
