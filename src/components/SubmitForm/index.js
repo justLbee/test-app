@@ -40,7 +40,6 @@ class SubmitForm extends Component {
                             value={'Начать работу'}
                         />
                     </div>
-
                     <p>
                         Нажимая кнопку "Отправить", я даю свое согласие на обработку персональных данных.
                         <a href={"/uploads/test.docx"} target={'_blank'}> Условия использования данных</a>
@@ -53,7 +52,7 @@ class SubmitForm extends Component {
 
 function mapStateToProps(state) {
     return {
-        formControls: state.inputReducer
+        formControls: state.inputReducer,
     }
 }
 
