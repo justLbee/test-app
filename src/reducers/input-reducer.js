@@ -1,47 +1,49 @@
 import is from "is_js";
 
 const initialState = {
-    name : {
-        value       : '',
-        type        : 'text',
-        placeholder : 'Имя*',
-        errorMessage: 'Поле не может быть пустым',
-        valid       : false,
-        touched     : false,
-        size        : 'big',
-        validation  : {
-            required : true,
-            minLength: 1,
-            name     : true
-        }
-    },
-    phone: {
-        value       : '',
-        type        : 'text',
-        placeholder : 'Номер телефона*',
-        errorMessage: 'Введите корректный пароль',
-        valid       : false,
-        touched     : false,
-        size        : 'small',
-        validation  : {
-            required: true,
-            phone   : true
-        }
-    },
-    email: {
-        value       : '',
-        type        : 'email',
-        placeholder : 'Email*',
-        errorMessage: 'Введите корректный email',
-        valid       : false,
-        touched     : false,
-        size        : 'big',
-        validation  : {
-            required: true,
-            email   : true
+    formIsValid: false,
+    inputs: {
+        name : {
+            value       : '',
+            type        : 'text',
+            placeholder : 'Имя*',
+            errorMessage: 'Поле не может быть пустым',
+            valid       : false,
+            touched     : false,
+            size        : 'big',
+            validation  : {
+                required : true,
+                minLength: 1,
+                name     : true
+            }
+        },
+        phone: {
+            value       : '',
+            type        : 'text',
+            placeholder : 'Номер телефона*',
+            errorMessage: 'Введите корректный пароль',
+            valid       : false,
+            touched     : false,
+            size        : 'small',
+            validation  : {
+                required: true,
+                phone   : true
+            }
+        },
+        email: {
+            value       : '',
+            type        : 'email',
+            placeholder : 'Email*',
+            errorMessage: 'Введите корректный email',
+            valid       : false,
+            touched     : false,
+            size        : 'big',
+            validation  : {
+                required: true,
+                email   : true
+            }
         }
     }
-
 };
 
 function validateInput(value, validation) {
@@ -92,14 +94,21 @@ export default function (state = initialState, action) {
 
     switch (action.type) {
         case "VALUE_CHANGED":
-            localStore = {...state};
+            localStore = {
+                ...state,
+            };
 
-            let selectedInput = localStore[action.payload.input];
+            const selectedInput = localStore.inputs[action.payload.input];
 
             selectedInput.touched = true;
             selectedInput.value = checkText(action.payload.text, action.payload.input);
             selectedInput.valid = validateInput(selectedInput.value, selectedInput.validation);
 
+            // let selectedInput = localStore[action.payload.input];
+            //
+            // selectedInput.touched = true;
+            // selectedInput.value = checkText(action.payload.text, action.payload.input);
+            // selectedInput.valid = validateInput(selectedInput.value, selectedInput.validation);
 
             return localStore;
         default:

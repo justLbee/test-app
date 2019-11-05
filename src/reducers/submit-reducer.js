@@ -13,8 +13,7 @@ export default function (state = initialState, action) {
             return isValid = action.payload.inputsData[input].valid && isValid;
         });
 
-        localState.isFormValid = true;
-
+        localState.isFormValid = isValid;
         return localState;
     } else {
         return state;

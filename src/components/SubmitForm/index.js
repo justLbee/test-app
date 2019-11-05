@@ -10,8 +10,8 @@ import classes from "../../assets/index.module.scss"
 
 class SubmitForm extends Component {
     renderInputs() {
-        return Object.keys(this.props.formControls).map((controlName, index) => {
-            const control = this.props.formControls[controlName];
+        return Object.keys(this.props.formControls.inputs).map((controlName, index) => {
+            const control = this.props.formControls.inputs[controlName];
             return (
                 <Input value={ control.value }
                        type={ control.type }
