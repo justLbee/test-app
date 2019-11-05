@@ -1,12 +1,10 @@
 import React   from "react";
-import classes from "./notice.module.css"
+import classes from "./notice.module.scss"
 
 const Notice = props => {
-    // console.log(props);
-    const cls = [classes.Notice];
-    console.log(props.visible);
+    let cls = [classes.Notice];
     if (props.visible) {
-        cls.push(classes.visible)
+        cls.push(classes.display_notice);
     }
 
     return (
