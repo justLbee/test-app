@@ -6,7 +6,7 @@ import SubmitForm from "./components/SubmitForm";
 function App() {
     return (
         <MainLayout>
-            <SubmitForm/>
+            <SubmitForm />
         </MainLayout>
     );
 }

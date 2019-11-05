@@ -1,0 +1,17 @@
+.Notice {
+  text-align: center;
+  visibility: hidden;
+
+  position: absolute;
+  right: -100px;
+  top: 0;
+  width: 100px;
+  height: 50px;
+  background: #000;
+  margin-top: 5px;
+  transition: right .2s linear;
+}
+
+.visible {
+  right: 0;
+}
