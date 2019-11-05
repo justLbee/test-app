@@ -15,6 +15,11 @@ const Input = props => {
         cls.push(classes.invalid);
     }
 
+    console.log(props);
+    if(props.size && props.size === 'small') {
+        cls.push(classes.phoneInput);
+    }
+
     return (
         <div className={ cls.join(' ') }>
             <input

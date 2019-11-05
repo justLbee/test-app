@@ -5,10 +5,11 @@ const initialState = {
     name : {
         value       : '',
         type        : 'text',
-        placeholder : 'Имя',
+        placeholder : 'Имя*',
         errorMessage: 'Поле не может быть пустым',
         valid       : false,
         touched     : false,
+        size        : 'big',
         validation  : {
             required : true,
             minLength: 1,
@@ -18,10 +19,11 @@ const initialState = {
     phone: {
         value       : '',
         type        : 'text',
-        placeholder : 'Телефон',
+        placeholder : 'Номер телефона*',
         errorMessage: 'Введите корректный пароль',
         valid       : false,
         touched     : false,
+        size        : 'small',
         validation  : {
             required: true,
             phone   : true
@@ -30,10 +32,11 @@ const initialState = {
     email: {
         value       : '',
         type        : 'email',
-        placeholder : 'Email',
+        placeholder : 'Email*',
         errorMessage: 'Введите корректный email',
         valid       : false,
         touched     : false,
+        size        : 'big',
         validation  : {
             required: true,
             email   : true
@@ -75,7 +78,7 @@ function checkText(value, type) {
         return value.replace(phoneRegex, '');
     }
 
-    if(type.name) {
+    if (type.name) {
         const nameRegex = /[^а-яё ]/i;
 
         return value.replace(nameRegex, '');

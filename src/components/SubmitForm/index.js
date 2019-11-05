@@ -1,7 +1,7 @@
-import React, { Component }   from "react";
-import { connect }            from "react-redux"
+import React, { Component } from "react";
+import { connect }          from "react-redux"
 
-import { inputStateChanged }             from "../../actions";
+import { inputStateChanged } from "../../actions";
 
 import Input from "../UI/Input";
 
@@ -20,6 +20,7 @@ class SubmitForm extends Component {
                        errorMessgae={ control.errorMessage }
                        shouldValidate={ !!control.validation }
                        key={ controlName + index }
+                       size={control.size}
                        onChange={ event => this.props.onChangeHandler(controlName, event.target.value) }
                 />
             )
@@ -32,6 +33,18 @@ class SubmitForm extends Component {
                 <h1>Заголовок формы</h1>
                 <form>
                     { this.renderInputs() }
+
+                    <div className={ classes.btnSubmit }>
+                        <input
+                            type={ 'submit' }
+                            value={'Начать работу'}
+                        />
+                    </div>
+
+                    <p>
+                        Нажимая кнопку "Отправить", я даю свое согласие на обработку персональных данных.
+                        <a href={"/uploads/test.docx"} target={'_blank'}> Условия использования данных</a>
+                    </p>
                 </form>
             </div>
         )

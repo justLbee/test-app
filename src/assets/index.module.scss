@@ -26,10 +26,43 @@ code {
   }
 
   .formWindowWrapper {
-    width: 450px;
-    height: 500px;
+    min-width: 350px;
+    width: 400px;
+    height: 430px;
     border: 1px solid #ccc;
     padding: 0 30px;
+
+    p {
+      font-size: 0.8rem;
+      color: #ccc;
+    }
+
+    a {
+      color: #49cc90;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #19be6b
+    }
+  }
+
+  .btnSubmit input {
+    width: 100%;
+    height: 2.5rem;
+    margin-top: 10%;
+
+    background-color: #000;
+    color: #fff;
+    border: 0;
+
+    .btnSubmit input:hover {
+      cursor: pointer;
+    }
   }
 }
+
+
+
+
 
