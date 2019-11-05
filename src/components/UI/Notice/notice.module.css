@@ -3,15 +3,13 @@
   visibility: hidden;
 
   position: absolute;
-  right: -100px;
   top: 0;
-  width: 100px;
-  height: 50px;
-  background: #000;
+  left: -200px;
   margin-top: 5px;
-  transition: right .2s linear;
+  transition: left .3s linear;
 }
 
 .visible {
-  right: 0;
+  left: 0;
+  visibility: visible;
 }

@@ -4,7 +4,7 @@ import classes from "./notice.module.css"
 const Notice = props => {
     // console.log(props);
     const cls = [classes.Notice];
-
+    console.log(props.visible);
     if (props.visible) {
         cls.push(classes.visible)
     }
