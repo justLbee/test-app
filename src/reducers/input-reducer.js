@@ -70,9 +70,15 @@ function validateInput(value, validation) {
 
 function checkText(value, type) {
     if (type.phone) {
-        const phoneRegex = /[^\+\d]/g;;
+        const phoneRegex = /[^+\d]/g;
 
         return value.replace(phoneRegex, '');
+    }
+
+    if(type.name) {
+        const nameRegex = /[^а-яё ]/i;
+
+        return value.replace(nameRegex, '');
     }
 
     return value;
