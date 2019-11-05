@@ -85,13 +85,8 @@ function checkText(value, type) {
 }
 
 export default function (state = initialState, action) {
-    // console.log(state);
     let localStore;
     switch (action.type) {
-        case "INPUT_TOUCHED":
-            // console.log(localState);
-            return action.payload;
-        // break;
         case "VALUE_CHANGED":
             localStore = {...state};
 

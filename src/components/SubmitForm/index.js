@@ -1,7 +1,7 @@
 import React, { Component }   from "react";
 import { connect }            from "react-redux"
 
-import { inputTouched, inputStateChanged }             from "../../actions";
+import { inputStateChanged }             from "../../actions";
 
 import Input from "../UI/Input";
 
