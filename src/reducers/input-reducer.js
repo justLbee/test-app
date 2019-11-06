@@ -2,6 +2,7 @@ import is from "is_js";
 
 const initialState = {
     formIsValid: false,
+    showNotice: false,
     inputs     : {
         name : {
             value       : '',
@@ -130,10 +131,14 @@ export default function (state = initialState, action) {
             };
 
             for(let inp in localStore.inputs) {
+                console.log(inp);
                 userData[inp] = localStore.inputs[inp].value;
-                userData[inp].value = '';
-                userData[inp].valid = false;
+                localStore.inputs[inp].value = '';
+                localStore.inputs[inp].valid = false;
+                localStore.inputs[inp].touched = false;
             }
+
+            localStore.showNotice = true;
 
             return localStore;
         default:
