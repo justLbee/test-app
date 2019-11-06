@@ -96,9 +96,12 @@ export default function (state = initialState, action) {
     switch (action.type) {
         case "VALUE_CHANGED":
             localStore = {
-                ...state,
-                ...state.formIsValid
+                ...state
             };
+
+            if(localStore.showNotice) {
+                localStore.showNotice = false;
+            }
 
             const selectedInput = localStore.inputs[action.payload.input];
 
