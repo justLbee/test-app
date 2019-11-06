@@ -120,7 +120,6 @@ export default function (state = initialState, action) {
             localStore = {...state};
 
             if(!localStore.formIsValid) {
-                console.log(123);
                 return state;
             }
 
@@ -132,7 +131,8 @@ export default function (state = initialState, action) {
 
             for(let inp in localStore.inputs) {
                 userData[inp] = localStore.inputs[inp].value;
-                localStore.inputs[inp].value = '';
+                userData[inp].value = '';
+                userData[inp].valid = false;
             }
 
             return localStore;
