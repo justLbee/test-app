@@ -95,41 +95,28 @@ export default function (state = initialState, action) {
 
     switch (action.type) {
         case "VALUE_CHANGED":
-            // localStore = {
-            //     ...state,
-            //     showNotice: false
-            // };
-            //
-            // // const selectedInput = {...localStore.inputs[action.payload.input]};
-            //
-            // localStore.inputs[action.payload.input].touched = true;
-            // localStore.inputs[action.payload.input].value = checkText(action.payload.text, action.payload.input);
-            // localStore.inputs[action.payload.input].valid = validateInput(selectedInput.value, selectedInput.validation);
-            //
-            // let isValid = true;
-            //
-            // Object.keys(localStore.inputs).map(input => {
-            //     return isValid = localStore.inputs[input].valid && isValid;
-            // });
-            //
-            // localStore.formIsValid = isValid;
-            //
-            // console.log(localStore);
-            //
-            // return localStore;
             localStore = {
                 ...state,
                 showNotice: false,
-                inputs: {
+                inputs    : {
                     ...state.inputs,
                     [action.payload.input]: {
                         ...state.inputs[action.payload.input],
-                        value: action.payload.text,
-                        valid: true
+                        value  : checkText(action.payload.text, action.payload.input),
+                        valid  : validateInput(action.payload.text, state.inputs[action.payload.input].validation),
+                        touched: true
                     }
                 }
-
             };
+
+            let isValid = true;
+
+            Object.keys(localStore.inputs).map(input => {
+                return isValid = localStore.inputs[input].valid && isValid;
+            });
+
+            localStore.formIsValid = isValid;
+
             console.log(localStore);
             return localStore;
         case "SUBMIT_CLICKED":

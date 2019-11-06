@@ -1,7 +1,7 @@
 export const inputStateChanged = (input, text) => {
     return {
         type   : 'VALUE_CHANGED',
-        payload: {input, text}
+        payload: {input: input, text: text}
     }
 };
 
