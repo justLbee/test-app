@@ -1,4 +1,4 @@
-import inputReducer, { initialState } from "./input-reducer"
+import inputReducer, { initialState } from "./input-reducer";
 
 describe('tests', () => {
     it('Check Default State', () => {
@@ -81,9 +81,10 @@ describe('tests', () => {
         })
     });
 
-    it('Check state output on Submit', () => {
+    it('Check empty form submit', () => {
         const action = {
-            type: 'SUBMIT_CLICKED'
+            type: 'SUBMIT_CLICKED',
+            payload: {}
         };
 
         expect(inputReducer(initialState, action)).toEqual({
@@ -91,22 +92,22 @@ describe('tests', () => {
         })
     });
 
-    // it('Check state output on Submit', () => {
-    //     const formIsValidState = {
-    //         formIsValid: true,
-    //         showNotice: false,
-    //         inputs: {name: {}, phone: {}, email: {}}
-    //     };
-    //
-    //     const action = {
-    //         type: t.onSubmitClicked,
-    //         payload: onclick
-    //     };
-    //
-    //     expect(inputReducer(formIsValidState, action)).toEqual({
-    //         ...formIsValidState,
-    //         showNotice: true,
-    //         formIsValid: true,
-    //     })
-    // });
+    it('Check Submit', () => {
+        const formIsValidState = {
+            formIsValid: true,
+            showNotice: false,
+            inputs: {name: {}, phone: {}, email: {}}
+        };
+
+        const action = {
+            type: 'SUBMIT_CLICKED',
+            payload: {}
+        };
+
+        expect(inputReducer(formIsValidState, action)).toEqual({
+            ...formIsValidState,
+            showNotice: true,
+            formIsValid: true,
+        })
+    });
 });

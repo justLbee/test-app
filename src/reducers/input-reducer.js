@@ -117,15 +117,12 @@ export default function (state = initialState, action) {
 
             localStore.formIsValid = isValid;
 
-            console.log(localStore);
             return localStore;
         case "SUBMIT_CLICKED":
-            action.payload.event.preventDefault();
-
             localStore = {...state};
 
             if (!localStore.formIsValid) {
-                return state;
+                return localStore;
             }
 
             const userData = {

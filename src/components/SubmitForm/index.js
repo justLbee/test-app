@@ -28,6 +28,11 @@ class SubmitForm extends Component {
         })
     }
 
+    submitClicked(event) {
+        event.preventDefault();
+        this.props.onClickHandler();
+    }
+
     render() {
         return (
             <div className={ classes.formWindowWrapper }>
@@ -39,7 +44,7 @@ class SubmitForm extends Component {
                         <input
                             type={ 'submit' }
                             value={ 'Начать работу' }
-                            onClick={ event => this.props.onClickHandler(event) }
+                            onClick={ event => this.submitClicked(event) }
                         />
                     </div>
                     <p className={classes.conditionsText}>
