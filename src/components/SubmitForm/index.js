@@ -42,13 +42,13 @@ class SubmitForm extends Component {
                             onClick={ event => this.props.onClickHandler(event) }
                         />
                     </div>
-                    <p>
+                    <p className={classes.conditionsText}>
                         Нажимая кнопку "Отправить", я даю свое согласие на обработку персональных данных.
                         <a href={ "/uploads/test.docx" } target={ '_blank' }> Условия использования данных</a>
                     </p>
                 </form>
 
-                <Notice visible={ true }/>
+                <Notice visible={ this.props.showNotice }/>
             </div>
         )
     }

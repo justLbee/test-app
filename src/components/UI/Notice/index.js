@@ -9,13 +9,7 @@ const Notice = props => {
 
     return (
         <div className={ cls.join(' ') }>
-            <div className={classes.successCheckmark}>
-                <div className={classes.checkIcon}>
-                    <span className={`${classes.iconLine} ${classes.lineTip}`}/>
-                    <span className={`${classes.iconLine} ${classes.lineLong}`}/>
-                    <div className={classes.iconCircle}/>
-                    <div className={classes.iconFix}/>
-                </div>
+            <div className={classes.iconSuccess}>
             </div>
             <div>
                 <p>
