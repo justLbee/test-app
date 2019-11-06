@@ -5,9 +5,9 @@ export const inputStateChanged = (input, text) => {
     }
 };
 
-export const onSubmitClicked = (event, inputsData) => {
+export const onSubmitClicked = (event) => {
     return {
         type: 'SUBMIT_CLICKED',
-        payload: {event, inputsData}
+        payload: {event}
     }
 };

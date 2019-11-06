@@ -1,8 +1,8 @@
 import is from "is_js";
 
-const initialState = {
+export const initialState = {
     formIsValid: false,
-    showNotice: false,
+    showNotice : false,
     inputs     : {
         name : {
             value       : '',
@@ -95,35 +95,49 @@ export default function (state = initialState, action) {
 
     switch (action.type) {
         case "VALUE_CHANGED":
+            // localStore = {
+            //     ...state,
+            //     showNotice: false
+            // };
+            //
+            // // const selectedInput = {...localStore.inputs[action.payload.input]};
+            //
+            // localStore.inputs[action.payload.input].touched = true;
+            // localStore.inputs[action.payload.input].value = checkText(action.payload.text, action.payload.input);
+            // localStore.inputs[action.payload.input].valid = validateInput(selectedInput.value, selectedInput.validation);
+            //
+            // let isValid = true;
+            //
+            // Object.keys(localStore.inputs).map(input => {
+            //     return isValid = localStore.inputs[input].valid && isValid;
+            // });
+            //
+            // localStore.formIsValid = isValid;
+            //
+            // console.log(localStore);
+            //
+            // return localStore;
             localStore = {
-                ...state
+                ...state,
+                showNotice: false,
+                inputs: {
+                    ...state.inputs,
+                    [action.payload.input]: {
+                        ...state.inputs[action.payload.input],
+                        value: action.payload.text,
+                        valid: true
+                    }
+                }
+
             };
-
-            if(localStore.showNotice) {
-                localStore.showNotice = false;
-            }
-
-            const selectedInput = localStore.inputs[action.payload.input];
-
-            selectedInput.touched = true;
-            selectedInput.value = checkText(action.payload.text, action.payload.input);
-            selectedInput.valid = validateInput(selectedInput.value, selectedInput.validation);
-
-            let isValid = true;
-
-            Object.keys(localStore.inputs).map(input => {
-                return isValid = localStore.inputs[input].valid && isValid;
-            });
-
-            localStore.formIsValid = isValid;
-
+            console.log(localStore);
             return localStore;
         case "SUBMIT_CLICKED":
             action.payload.event.preventDefault();
 
             localStore = {...state};
 
-            if(!localStore.formIsValid) {
+            if (!localStore.formIsValid) {
                 return state;
             }
 
@@ -133,8 +147,7 @@ export default function (state = initialState, action) {
                 email: ''
             };
 
-            for(let inp in localStore.inputs) {
-                console.log(inp);
+            for (let inp in localStore.inputs) {
                 userData[inp] = localStore.inputs[inp].value;
                 localStore.inputs[inp].value = '';
                 localStore.inputs[inp].valid = false;
