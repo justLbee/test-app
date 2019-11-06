@@ -44,7 +44,7 @@ class SubmitForm extends Component {
                     </div>
                     <p className={classes.conditionsText}>
                         Нажимая кнопку "Отправить", я даю свое согласие на обработку персональных данных.
-                        <a href={ "/uploads/test.docx" } target={ '_blank' }> Условия использования данных</a>
+                        <a href={ "../../public/uploads/test.docx" } target={ '_blank' } download={"test.docx"}> Условия использования данных</a>
                     </p>
                 </form>
 
