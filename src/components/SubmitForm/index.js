@@ -48,7 +48,7 @@ class SubmitForm extends Component {
                     </p>
                 </form>
 
-                <Notice visible={ this.props.showNotice }/>
+                <Notice visible={ true }/>
             </div>
         )
     }
