@@ -39,7 +39,7 @@ class SubmitForm extends Component {
                         <input
                             type={ 'submit' }
                             value={ 'Начать работу' }
-                            onClick={ event => this.props.onClickHandler(event, this.props.formControls) }
+                            onClick={ event => this.props.onClickHandler(event) }
                         />
                     </div>
                     <p>
@@ -48,7 +48,7 @@ class SubmitForm extends Component {
                     </p>
                 </form>
 
-                <Notice visible={this.props.formIsValid}/>
+                <Notice visible={false}/>
             </div>
         )
     }
@@ -67,8 +67,8 @@ function mapDispatchToProps(dispatch) {
             dispatch(inputStateChanged(controlName, text))
         },
 
-        onClickHandler: (event, inputsData) => {
-            dispatch(onSubmitClicked(event, inputsData))
+        onClickHandler: (event) => {
+            dispatch(onSubmitClicked(event))
         }
     }
 }

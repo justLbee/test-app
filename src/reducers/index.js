@@ -5,7 +5,6 @@ import submitReducer from "./submit-reducer"
 
 const allReducers = combineReducers({
     inputReducer,
-    submitReducer
 });
 
 export default allReducers;
