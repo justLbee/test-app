@@ -1,21 +1,29 @@
-import inputReducer, {initialState} from "./input-reducer"
-import * as t from "../actions"
+import inputReducer, { initialState } from "./input-reducer"
 
 describe('tests', () => {
-    it('Check state type', () => {
+    it('Check Default State', () => {
         const action = {
-            type: t.inputStateChanged,
-            payload: {input: 'name', text: 'ф'}
+            type   : 'VALUE_CHANGED',
+            payload: {input: 'name', text: 'ффф'}
         };
 
-        expect(inputReducer(initialState, action)).toEqual({
-            ...initialState
+        expect(inputReducer(undefined, action)).toEqual({
+            ...initialState,
+            inputs: {
+                ...initialState.inputs,
+                [action.payload.input]: {
+                    ...initialState.inputs[action.payload.input],
+                    value  : action.payload.text,
+                    valid  : true,
+                    touched: true
+                }
+            }
         })
     });
 
     it('Check Name Valid', () => {
         const action = {
-            type: t.inputStateChanged,
+            type   : 'VALUE_CHANGED',
             payload: {input: 'name', text: 'ффф'}
         };
 
@@ -24,29 +32,58 @@ describe('tests', () => {
             inputs: {
                 ...initialState.inputs,
                 [action.payload.input]: {
-                    ...initialState.inputs.name,
-                    value: action.payload.text,
-                    valid: true
+                    ...initialState.inputs[action.payload.input],
+                    value  : action.payload.text,
+                    valid  : true,
+                    touched: true
                 }
             }
         })
     });
 
-    it('Check Notice status', () => {
+    it('Check Phone Valid', () => {
         const action = {
-            type: t.inputStateChanged,
+            type   : 'VALUE_CHANGED',
+            payload: {input: 'phone', text: '+79991921313'}
         };
 
         expect(inputReducer(initialState, action)).toEqual({
             ...initialState,
-            showNotice: false,
+            inputs: {
+                ...initialState.inputs,
+                [action.payload.input]: {
+                    ...initialState.inputs[action.payload.input],
+                    value  : action.payload.text,
+                    valid  : true,
+                    touched: true
+                }
+            }
+        })
+    });
 
+    it('Check Phone Email', () => {
+        const action = {
+            type   : 'VALUE_CHANGED',
+            payload: {input: 'email', text: 'john@doe.com'}
+        };
+
+        expect(inputReducer(initialState, action)).toEqual({
+            ...initialState,
+            inputs: {
+                ...initialState.inputs,
+                [action.payload.input]: {
+                    ...initialState.inputs[action.payload.input],
+                    value  : action.payload.text,
+                    valid  : true,
+                    touched: true
+                }
+            }
         })
     });
 
     it('Check state output on Submit', () => {
         const action = {
-            type: t.onSubmitClicked
+            type: 'SUBMIT_CLICKED'
         };
 
         expect(inputReducer(initialState, action)).toEqual({
