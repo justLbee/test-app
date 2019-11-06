@@ -48,7 +48,7 @@ class SubmitForm extends Component {
                     </p>
                 </form>
 
-                <Notice visible={this.props.isFormValid}/>
+                <Notice visible={this.props.formIsValid}/>
             </div>
         )
     }
@@ -57,7 +57,7 @@ class SubmitForm extends Component {
 function mapStateToProps(state) {
     return {
         formControls: state.inputReducer,
-        isFormValid : state.submitReducer.isFormValid
+        formIsValid : state.inputReducer.formIsValid
     }
 }
 

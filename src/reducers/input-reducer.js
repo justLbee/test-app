@@ -2,7 +2,7 @@ import is from "is_js";
 
 const initialState = {
     formIsValid: false,
-    inputs: {
+    inputs     : {
         name : {
             value       : '',
             type        : 'text',
@@ -91,6 +91,7 @@ function checkText(value, type) {
 
 export default function (state = initialState, action) {
     let localStore;
+    let isValid = true;
 
     switch (action.type) {
         case "VALUE_CHANGED":
@@ -104,13 +105,18 @@ export default function (state = initialState, action) {
             selectedInput.value = checkText(action.payload.text, action.payload.input);
             selectedInput.valid = validateInput(selectedInput.value, selectedInput.validation);
 
-            // let selectedInput = localStore[action.payload.input];
-            //
-            // selectedInput.touched = true;
-            // selectedInput.value = checkText(action.payload.text, action.payload.input);
-            // selectedInput.valid = validateInput(selectedInput.value, selectedInput.validation);
+            Object.keys(localStore.inputs).map(input => {
+                return isValid = localStore.inputs[input].valid && isValid;
+            });
 
             return localStore;
+        case "SUBMIT_CLICKED":
+            action.payload.event.preventDefault();
+
+            return isValid ? {
+                    ...state,
+                    ...state.formIsValid = isValid
+                } : state;
         default:
             return state;
     }
