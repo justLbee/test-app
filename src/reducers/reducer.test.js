@@ -61,7 +61,7 @@ describe('tests', () => {
         })
     });
 
-    it('Check Phone Email', () => {
+    it('Check Email Valid', () => {
         const action = {
             type   : 'VALUE_CHANGED',
             payload: {input: 'email', text: 'john@doe.com'}
@@ -88,7 +88,8 @@ describe('tests', () => {
         };
 
         expect(inputReducer(initialState, action)).toEqual({
-            ...initialState
+            ...initialState,
+            showNotice: false,
         })
     });
 
