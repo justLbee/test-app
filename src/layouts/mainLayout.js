@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import classes from "../assets/index.module.scss"
+import classes from "../assets/css/index.module.scss"
 
 export default class mainLayout extends Component {
     render() {

@@ -6,7 +6,7 @@ import { inputStateChanged, onSubmitClicked } from "../../actions";
 import Input  from "../UI/Input";
 import Notice from "../UI/Notice"
 
-import classes from "../../assets/index.module.scss"
+import classes from "../../assets/css/index.module.scss"
 
 class SubmitForm extends Component {
     renderInputs() {
@@ -47,9 +47,12 @@ class SubmitForm extends Component {
                             onClick={ event => this.submitClicked(event) }
                         />
                     </div>
-                    <p className={classes.conditionsText}>
+                    <p className={ classes.conditionsText }>
                         Нажимая кнопку "Отправить", я даю свое согласие на обработку персональных данных.
-                        <a href={ "../../public/uploads/test.docx" } target={ '_blank' } download={"test.docx"}> Условия использования данных</a>
+                        <a href={ "../../public/uploads/test.docx" } target={ '_blank' } download={ "test.docx" }
+                        >
+                            Условия использования данных
+                        </a>
                     </p>
                 </form>
 
