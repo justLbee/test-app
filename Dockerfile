@@ -3,14 +3,13 @@ WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
-COPY public public
-COPY src src
+COPY ./ /app/
 RUN npm run build
 
 
 FROM nginx:alpine as production-stage
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build-stage /app/dist /app/dist
+COPY --from=build-stage /app/build /app/build
 WORKDIR /etc/nginx
 
 EXPOSE 8080
