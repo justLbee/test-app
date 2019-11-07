@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+    test_app:
+        build: ./
+
+    server:
+        build: ./
+        ports:
+        - 8080:8080
+
+
